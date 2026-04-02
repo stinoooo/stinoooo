@@ -5,6 +5,9 @@ on:
     - cron: "0 0 * * *" # runs every day at midnight UTC
   workflow_dispatch:     # lets you trigger it manually too
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   update-age:
     runs-on: ubuntu-latest
@@ -18,10 +21,10 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "24"
 
       - name: Calculate age and patch README
-        run: node .github/scripts/update-age.js
+        run: node .github/workflows/update-age.js
 
       - name: Commit updated README
         run: |
