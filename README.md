@@ -210,7 +210,7 @@ Programming is my degree. It's also my weekend. That overlap is not a coincidenc
 
 <div align="center">
 
-<img src="https://github-profile-trophy.vercel.app/?username=stinoooo&theme=darkhub&no-frame=true&no-bg=true&margin-w=8&column=6&rank=SECRET,SSS,SS,S,AAA,AA,A,B,C" alt="GitHub Trophies" />
+<img src="https://stinoo-trophies.vercel.app/?username=stinoooo&theme=darkhub&no-frame=true&no-bg=true&margin-w=8&column=6&rank=SECRET,SSS,SS,S,AAA,AA,A,B,C" alt="GitHub Trophies" />
 
 </div>
 
