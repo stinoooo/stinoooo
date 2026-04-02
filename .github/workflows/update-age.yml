@@ -1,0 +1,34 @@
+name: Update Age in README
+
+on:
+  schedule:
+    - cron: "0 0 * * *" # runs every day at midnight UTC
+  workflow_dispatch:     # lets you trigger it manually too
+
+jobs:
+  update-age:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Calculate age and patch README
+        run: node .github/scripts/update-age.js
+
+      - name: Commit updated README
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git diff --quiet && echo "No changes, age is already up to date." || (
+            git add README.md &&
+            git commit -m "chore: update age in README [skip ci]" &&
+            git push
+          )
