@@ -24,6 +24,7 @@ jobs:
           username: stinoooo
           file: assets/trophy.svg
           token: ${{ secrets.GITHUB_TOKEN }}
+          theme: darkhub
 
       - name: Find and move trophy SVG
         run: |
