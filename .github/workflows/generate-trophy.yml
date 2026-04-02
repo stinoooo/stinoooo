@@ -25,12 +25,23 @@ jobs:
           file: assets/trophy.svg
           token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Find and move trophy SVG
+        run: |
+          echo "=== Searching for trophy.svg ==="
+          find / -name "trophy.svg" 2>/dev/null || echo "Not found anywhere"
+          echo "=== Current directory ==="
+          pwd
+          echo "=== Repo contents ==="
+          ls -la
+          echo "=== Assets folder ==="
+          ls -la assets/ 2>/dev/null || echo "No assets folder"
+
       - name: Commit trophy SVG
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git diff --quiet && echo "No changes." || (
-            git add assets/trophy.svg &&
+          git add -f assets/trophy.svg
+          git diff --cached --quiet && echo "No changes." || (
             git commit -m "chore: regenerate trophy SVG [skip ci]" &&
             git push
           )
