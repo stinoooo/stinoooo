@@ -133,6 +133,5 @@ for path_str, label_color in VARIANTS:
         count=1,
         flags=re.DOTALL,
     )
-
     path.write_text(src3, encoding="utf-8")
     print(f"decorated: {path_str}  (count={count_str or 'n/a'})")
