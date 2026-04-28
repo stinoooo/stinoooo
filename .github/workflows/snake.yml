@@ -1,35 +1,32 @@
-name: Generate Contribution Snake
+name: generate snake animation
 
 on:
   schedule:
-    - cron: "0 */6 * * *" # every 6 hours
+    - cron: "0 0 * * *" # daily at 00:00 UTC
   workflow_dispatch:
   push:
     branches:
       - main
 
-permissions:
-  contents: write
-
 jobs:
   generate:
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
+    timeout-minutes: 5
 
-      - name: Generate snake SVGs
+    steps:
+      # Cyan/blue palette layered on github-dark so empty cells render at
+      # #161b22 (visible against page bg, never invisible).
+      - name: generate github-contribution-grid-snake.svg
         uses: Platane/snk/svg-only@v3
         with:
-          github_user_name: stinoooo
+          github_user_name: ${{ github.repository_owner }}
           outputs: |
-            dist/snake.svg?color_snake=#1f2937&color_dots=#ebedf0,#b3e6f5,#66ccee,#33b5e0,#0099cc
-            dist/snake-dark.svg?palette=github-dark&color_snake=#ffffff&color_dots=#161b22,#0a3d52,#0277a8,#00b4d8,#00d4ff
+            dist/github-contribution-grid-snake.svg?color_snake=#1f2937&color_dots=#ebedf0,#b3e6f5,#66ccee,#33b5e0,#0099cc
+            dist/github-contribution-grid-snake-dark.svg?palette=github-dark&color_snake=#ffffff&color_dots=#161b22,#0a3d52,#0277a8,#00b4d8,#00d4ff
 
-      - name: Finalize SVG (full raster + date labels)
-        run: python3 .github/scripts/add_labels.py
-
-      - name: Push to output branch
+      - name: push SVGs to output branch
         uses: crazy-max/ghaction-github-pages@v4
         with:
           target_branch: output
