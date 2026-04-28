@@ -220,6 +220,38 @@ Programming is my degree. It's also my weekend. That overlap is not a coincidenc
 
 <br/>
 
+## &nbsp;Contribution Snake
+
+<div align="center">
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/stinoooo/stinoooo/output/snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/stinoooo/stinoooo/output/snake.svg" />
+  <img alt="Contribution Snake eating my contributions" src="https://raw.githubusercontent.com/stinoooo/stinoooo/output/snake-dark.svg" width="100%" />
+</picture>
+
+</div>
+
+<table width="100%" border="0">
+  <tr>
+    <td align="left" width="50%">
+      <a href="https://arcnode.dev">
+        <img src="assets/arcnode.png" height="32" alt="Arcnode" align="left" />
+      </a>
+      &nbsp;&nbsp;<sub><b>powered by <a href="https://arcnode.dev">arcnode.dev</a></b> &nbsp;·&nbsp; built with intention</sub>
+    </td>
+    <td align="right" width="50%">
+      <sub><i>auto-generated every 6h via GitHub Actions</i></sub>
+    </td>
+  </tr>
+</table>
+
+<br/>
+
+---
+
+<br/>
+
 ## &nbsp;Get In Touch
 
 <div align="center">
