@@ -15,13 +15,19 @@ jobs:
   generate:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
       - name: Generate snake SVGs
         uses: Platane/snk/svg-only@v3
         with:
           github_user_name: stinoooo
           outputs: |
-            dist/snake.svg?color_snake=#0099cc&color_dots=#ebedf0,#b3e6f5,#66ccee,#33b5e0,#0099cc
-            dist/snake-dark.svg?palette=github-dark&color_snake=#00d4ff&color_dots=#0d1117,#0a3d52,#0277a8,#00b4d8,#00d4ff
+            dist/snake.svg?color_snake=#1f2937&color_dots=#ebedf0,#b3e6f5,#66ccee,#33b5e0,#0099cc
+            dist/snake-dark.svg?palette=github-dark&color_snake=#ffffff&color_dots=#0d1117,#0a3d52,#0277a8,#00b4d8,#00d4ff
+
+      - name: Add date labels (months + days)
+        run: python3 .github/scripts/add_labels.py
 
       - name: Push to output branch
         uses: crazy-max/ghaction-github-pages@v4
