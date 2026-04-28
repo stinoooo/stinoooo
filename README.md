@@ -229,9 +229,9 @@ Programming is my degree. It's also my weekend. That overlap is not a coincidenc
 <br/><br/>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/stinoooo/stinoooo/output/snake-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/stinoooo/stinoooo/output/snake.svg" />
-  <img alt="Contribution snake eating my GitHub activity grid" src="https://raw.githubusercontent.com/stinoooo/stinoooo/output/snake-dark.svg" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/stinoooo/stinoooo/output/github-contribution-grid-snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/stinoooo/stinoooo/output/github-contribution-grid-snake.svg" />
+  <img alt="Contribution snake eating my GitHub activity grid" src="https://raw.githubusercontent.com/stinoooo/stinoooo/output/github-contribution-grid-snake-dark.svg" width="100%" />
 </picture>
 
 </div>
@@ -245,7 +245,7 @@ Programming is my degree. It's also my weekend. That overlap is not a coincidenc
       &nbsp;&nbsp;<sub><b><a href="https://arcnode.dev">arcnode.dev</a></b> &nbsp;·&nbsp; built with intention</sub>
     </td>
     <td align="right" width="50%">
-      <sub><i>auto-generated every 6 hours via GitHub Actions</i></sub>
+      <sub><i>auto-generated daily via GitHub Actions</i></sub>
     </td>
   </tr>
 </table>
