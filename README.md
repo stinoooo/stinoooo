@@ -224,10 +224,6 @@ Programming is my degree. It's also my weekend. That overlap is not a coincidenc
 
 <div align="center">
 
-<sub>🐍 &nbsp;Watch the snake eat my contributions across the past year</sub>
-
-<br/><br/>
-
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/stinoooo/stinoooo/output/github-contribution-grid-snake-dark.svg" />
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/stinoooo/stinoooo/output/github-contribution-grid-snake.svg" />
