@@ -47,7 +47,7 @@
 
 ## &nbsp;Who Am I?
 
-I'm **Stijn**, a **23-year-old**<!-- DYNAMIC_AGE: born 2002-10-09 --> Computer Science and Software Engineering student from the **Netherlands**.
+I'm **Stijn**, a **24-year-old**<!-- DYNAMIC_AGE: born 2002-10-09 --> Computer Science and Software Engineering student from the **Netherlands**.
 
 When I have an idea, I don't just think about it. I start naming it, structuring it, building a folder for it, and wondering if it needs its own subdomain. (It probably does.) There's a builder instinct that kicks in before the rational part of my brain gets a say. I think in systems and ecosystems, which is exactly how [**Arcnode**](https://arcnode.dev) came to exist.
 
