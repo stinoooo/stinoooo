@@ -30,6 +30,7 @@ const PROFILE = {
   learning: 'Java for school, deeper Rust, Godot shaders, how LLMs work',
   into: 'games, desktop apps, AI',
   making: 'Exit Only, Arcnode Games',
+  shipped: 'ArcJournal 2.0, Exit Only 0.5.0, Arcnode Games 0.1.0',
   dog: 'Banjer, head of quality assurance',
 };
 
@@ -95,6 +96,7 @@ function card(theme, portrait, stats) {
     ['Role', PROFILE.role],
     ['Into', PROFILE.into],
     ['Making', PROFILE.making],
+    ['Shipped', PROFILE.shipped],
     ['Dog', PROFILE.dog],
     ['gap'],
     ['Languages', PROFILE.languages],
@@ -206,7 +208,7 @@ const PROJECTS = [
   {
     id: 'arcjournal',
     title: 'ArcJournal',
-    line: 'A daily journal, end-to-end encrypted.',
+    line: 'A daily journal, end-to-end encrypted. 2.0 is out.',
     tags: ['Electron', 'React', 'WebCrypto'],
   },
   {
