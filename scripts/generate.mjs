@@ -6,6 +6,7 @@
 //
 // Writes card-dark.svg, card-light.svg, heatmap-dark.svg and heatmap-light.svg.
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
+import { pathToFileURL } from 'node:url';
 
 const LOGIN = 'stinoooo';
 const BORN = '2002-10-09';
@@ -184,6 +185,9 @@ ${rects.join('\n')}
 `;
 }
 
+export { uptime, card, heatmap };
+
+async function main() {
 const data = await github(`query {
   user(login: "${LOGIN}") {
     repositories(ownerAffiliations: OWNER, isFork: false, privacy: PUBLIC, first: 100) {
@@ -214,3 +218,7 @@ for (const theme of Object.keys(THEMES)) {
   await writeFile(`${out}/heatmap-${theme}.svg`, heatmap(theme, calendar.weeks, calendar.totalContributions));
 }
 console.log(`Wrote cards to ${out}:`, JSON.stringify(stats));
+}
+
+// Draw only when run as a script, so the tests can import the drawing code.
+if (import.meta.url === pathToFileURL(process.argv[1]).href) await main();

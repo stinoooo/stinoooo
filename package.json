@@ -1,0 +1,9 @@
+{
+  "name": "stinoooo-profile",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test \"scripts/*.test.mjs\"",
+    "draw": "node scripts/generate.mjs dist"
+  }
+}
