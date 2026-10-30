@@ -28,11 +28,19 @@ computer in years.
 - ☕ **Learning Java** for school, and how AI actually works under the hood instead of only how to
   use it.
 
-### other things i've made
+### things i'm proud of
+
+<p align="center">
+<a href="https://arcnode.dev/projects/exit-only"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/stinoooo/stinoooo/output/project-exit-only-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/stinoooo/stinoooo/output/project-exit-only-light.svg" /><img alt="Exit Only: a police chase through a rainy night city" src="https://raw.githubusercontent.com/stinoooo/stinoooo/output/project-exit-only-dark.svg" width="49%" /></picture></a>
+<a href="https://github.com/stinoooo/ArcJournal"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/stinoooo/stinoooo/output/project-arcjournal-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/stinoooo/stinoooo/output/project-arcjournal-light.svg" /><img alt="ArcJournal: a daily journal, end-to-end encrypted" src="https://raw.githubusercontent.com/stinoooo/stinoooo/output/project-arcjournal-dark.svg" width="49%" /></picture></a>
+<a href="https://arcnode.dev/projects/arcnode-games"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/stinoooo/stinoooo/output/project-arcnode-games-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/stinoooo/stinoooo/output/project-arcnode-games-light.svg" /><img alt="Arcnode Games: the launcher that installs and updates my games" src="https://raw.githubusercontent.com/stinoooo/stinoooo/output/project-arcnode-games-dark.svg" width="49%" /></picture></a>
+<a href="https://github.com/stinoooo/ArcFlux"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/stinoooo/stinoooo/output/project-arcflux-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/stinoooo/stinoooo/output/project-arcflux-light.svg" /><img alt="ArcFlux: color tracking and physics for projection mapping" src="https://raw.githubusercontent.com/stinoooo/stinoooo/output/project-arcflux-dark.svg" width="49%" /></picture></a>
+</p>
+
+### and a few smaller ones
 
 | | |
 | --- | --- |
-| [ArcFlux](https://github.com/stinoooo/ArcFlux) | Real-time color tracking with physics, for projection mapping. [Try it](https://flux.arcnode.dev). |
 | [ArcUnzip](https://github.com/stinoooo/ArcUnzip) | Open a .zip right in the browser. [Try it](https://unzip.arcnode.dev). |
 | [rosa-vscode](https://github.com/stinoooo/rosa-vscode) | A VS Code theme with Rosa Wildlife Reserve colors, icons and a pixel dinosaur. |
 | [AutoMod badge bot](https://github.com/stinoooo/discord-automod-bot-badge) | Sets up AutoMod rules so a Discord bot earns its AutoMod badge. |
