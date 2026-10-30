@@ -31,12 +31,12 @@ const PROFILE = {
 const THEMES = {
   dark: {
     bg: '#1f1a17', border: '#3a302a', text: '#f3e7d9', muted: '#a8968a',
-    key: '#f4a261', accent: '#e9c46a', rule: '#4a3d34', portrait: '#f4c79a',
+    key: '#f4a261', accent: '#e9c46a', rule: '#4a3d34',
     cells: ['#2b241f', '#5c3a22', '#9a5a2c', '#d9822b', '#f6b26b'],
   },
   light: {
     bg: '#fbf5ec', border: '#eadccb', text: '#3d2f25', muted: '#8a7462',
-    key: '#c4622d', accent: '#b5832a', rule: '#e6d6c3', portrait: '#b36b3a',
+    key: '#c4622d', accent: '#b5832a', rule: '#e6d6c3',
     cells: ['#efe4d6', '#f6cfa1', '#eda564', '#d9782f', '#a8501c'],
   },
 };
@@ -71,12 +71,17 @@ function uptime(today = new Date()) {
   return `${plural(years, 'year')}, ${plural(months, 'month')}, ${plural(days, 'day')}`;
 }
 
+// The portrait sits on its own dark panel in both themes: colored ASCII
+// reads best light-on-dark.
+const PANEL = '#1f1a17';
+
 function card(theme, portrait, stats) {
   const t = THEMES[theme];
-  const lineH = 13.5;
-  const art = portrait.trimEnd().split('\n');
-  const artW = 44 * 6.6;
-  const x0 = 34 + artW + 34;
+  const lineH = 8.6;
+  const charW = 5.9;
+  const artW = portrait[0].length * charW;
+  const artH = portrait.length * lineH;
+  const x0 = 24 + artW + 24 + 30;
   const rows = [
     ['title'],
     ['rule'],
@@ -101,7 +106,7 @@ function card(theme, portrait, stats) {
     ['gap'],
     ['swatches'],
   ];
-  const height = Math.max(art.length * lineH + 60, rows.length * 22 + 52);
+  const height = Math.max(artH + 48, rows.length * 22 + 52);
   let y = 46;
   const parts = [];
   for (const [k, v] of rows) {
@@ -119,12 +124,17 @@ function card(theme, portrait, stats) {
     y += k === 'gap' ? 10 : 22;
   }
   const width = x0 + 500;
-  const artTop = (height - art.length * lineH) / 2 + 10;
-  const artText = art.map((line, i) => `<tspan x="34" y="${(artTop + i * lineH).toFixed(1)}">${esc(line) || ' '}</tspan>`).join('');
+  const panelY = (height - artH - 24) / 2;
+  const artText = portrait.map((row, i) => {
+    const chars = row.map(([c, color]) => `<tspan fill="${color}">${c === ' ' ? '&#160;' : esc(c)}</tspan>`).join('');
+    // Monospace widths differ per system; pin every row to the panel width.
+    return `<text x="36" y="${(panelY + 18 + i * lineH).toFixed(1)}" textLength="${artW.toFixed(1)}" lengthAdjust="spacingAndGlyphs">${chars}</text>`;
+  }).join('\n');
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-label="${esc(`${PROFILE.name}: ${PROFILE.role} in ${PROFILE.host}. Writes ${PROFILE.languages}. Builds with ${PROFILE.web}, ${PROFILE.desktop}, ${PROFILE.games}. Learning ${PROFILE.learning}. Into ${PROFILE.into}.`)}">
 <rect x="1" y="1" width="${width - 2}" height="${height - 2}" rx="16" fill="${t.bg}" stroke="${t.border}" stroke-width="2"/>
 <g font-family="${FONT}">
-<text font-size="11" fill="${t.portrait}" xml:space="preserve" opacity="0.92">${artText}</text>
+<rect x="24" y="${panelY.toFixed(1)}" width="${(artW + 24).toFixed(1)}" height="${(artH + 24).toFixed(1)}" rx="12" fill="${PANEL}"/>
+<g font-size="9.8" font-weight="700" xml:space="preserve">${artText}</g>
 ${parts.join('\n')}
 </g>
 </svg>
@@ -196,7 +206,7 @@ const stats = {
   stars: user.repositories.nodes.reduce((sum, r) => sum + r.stargazerCount, 0),
   contributions: calendar.totalContributions,
 };
-const portrait = await readFile(new URL('../assets/portrait.txt', import.meta.url), 'utf8');
+const portrait = JSON.parse(await readFile(new URL('../assets/portrait.json', import.meta.url), 'utf8'));
 
 await mkdir(out, { recursive: true });
 for (const theme of Object.keys(THEMES)) {
