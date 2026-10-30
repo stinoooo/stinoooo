@@ -17,13 +17,14 @@ const PROFILE = {
   name: 'stijn',
   host: 'the Netherlands',
   role: 'software engineering student',
-  languages: 'TypeScript, JavaScript, Rust, PHP, Python, GDScript',
-  web: 'Next.js, React, Node.js, Prisma, WordPress',
-  desktop: 'Tauri, Electron',
-  games: 'Godot, Blender',
-  data: 'PostgreSQL, MongoDB, Redis',
-  ships: 'Vercel, Railway, Cloudflare, GitHub Actions',
-  learning: 'Java',
+  languages: 'TypeScript, JavaScript, Rust, PHP, Python, GDScript, SQL',
+  web: 'Next.js, React, Node.js, Express, Tailwind CSS, Prisma, WordPress',
+  desktop: 'Tauri, Electron, Electron Forge, Vite',
+  games: 'Godot 4, Blender (models built in Python), synthesized sound',
+  bots: 'discord.js, discord.py',
+  data: 'PostgreSQL, MySQL, MongoDB, Redis',
+  ships: 'Vercel, Railway, Cloudflare, Docker, GitHub Actions',
+  learning: 'Java (school), deeper Rust, Godot shaders, how AI models work',
   into: 'games, desktop apps, AI',
   making: 'Exit Only, Arcnode Games',
   dog: 'Banjer, head of quality assurance',
@@ -97,6 +98,7 @@ function card(theme, portrait, stats) {
     ['Web', PROFILE.web],
     ['Desktop', PROFILE.desktop],
     ['Games', PROFILE.games],
+    ['Bots', PROFILE.bots],
     ['Data', PROFILE.data],
     ['Ships on', PROFILE.ships],
     ['Learning', PROFILE.learning],
@@ -124,7 +126,7 @@ function card(theme, portrait, stats) {
     }
     y += k === 'gap' ? 10 : 22;
   }
-  const width = x0 + 500;
+  const width = x0 + 660;
   const panelY = (height - artH - 24) / 2;
   const artText = portrait.map((row, i) => {
     const chars = row.map(([c, color]) => `<tspan fill="${color}">${c === ' ' ? '&#160;' : esc(c)}</tspan>`).join('');
@@ -185,7 +187,63 @@ ${rects.join('\n')}
 `;
 }
 
-export { uptime, card, heatmap };
+// The project showcase: one small card per project, each linked on its own
+// from the README. Thumbnails are embedded, since GitHub shows README SVGs as
+// images that cannot load anything else.
+const PROJECTS = [
+  {
+    id: 'exit-only',
+    title: 'Exit Only',
+    line: 'A police chase through a rainy night city.',
+    tags: ['Godot', 'Blender', 'game'],
+  },
+  {
+    id: 'arcjournal',
+    title: 'ArcJournal',
+    line: 'A daily journal, end-to-end encrypted.',
+    tags: ['Electron', 'React', 'WebCrypto'],
+  },
+  {
+    id: 'arcnode-games',
+    title: 'Arcnode Games',
+    line: 'The launcher that installs and updates my games.',
+    tags: ['Tauri', 'Rust', 'React'],
+  },
+  {
+    id: 'arcflux',
+    title: 'ArcFlux',
+    line: 'Color tracking and physics for projection mapping.',
+    tags: ['TypeScript', 'canvas', 'webcam'],
+  },
+];
+
+function projectCard(theme, project, thumbnail) {
+  const t = THEMES[theme];
+  const width = 420;
+  const imgH = 210;
+  const height = imgH + 118;
+  const clip = `clip-${project.id}-${theme}`;
+  let x = 22;
+  const tags = project.tags.map((tag) => {
+    const w = tag.length * 7.2 + 18;
+    const pill = `<rect x="${x}" y="${imgH + 78}" width="${w.toFixed(1)}" height="22" rx="11" fill="${t.cells[0]}" stroke="${t.border}"/><text x="${(x + w / 2).toFixed(1)}" y="${imgH + 93}" text-anchor="middle" font-size="11.5" fill="${t.muted}">${esc(tag)}</text>`;
+    x += w + 8;
+    return pill;
+  });
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-label="${esc(`${project.title}: ${project.line}`)}">
+<defs><clipPath id="${clip}"><path d="M1 17a16 16 0 0 1 16-16h${width - 34}a16 16 0 0 1 16 16v${imgH - 16}h-${width - 2}z"/></clipPath></defs>
+<rect x="1" y="1" width="${width - 2}" height="${height - 2}" rx="16" fill="${t.bg}" stroke="${t.border}" stroke-width="2"/>
+<image href="data:image/jpeg;base64,${thumbnail}" x="1" y="1" width="${width - 2}" height="${imgH}" preserveAspectRatio="xMidYMid slice" clip-path="url(#${clip})"/>
+<g font-family="${FONT}">
+<text x="22" y="${imgH + 34}" font-size="17" font-weight="700" fill="${t.key}">${esc(project.title)}</text>
+<text x="22" y="${imgH + 58}" font-size="12.5" fill="${t.text}">${esc(project.line)}</text>
+${tags.join('\n')}
+</g>
+</svg>
+`;
+}
+
+export { uptime, card, heatmap, projectCard, PROJECTS };
 
 async function main() {
 const data = await github(`query {
@@ -216,6 +274,10 @@ await mkdir(out, { recursive: true });
 for (const theme of Object.keys(THEMES)) {
   await writeFile(`${out}/card-${theme}.svg`, card(theme, portrait, stats));
   await writeFile(`${out}/heatmap-${theme}.svg`, heatmap(theme, calendar.weeks, calendar.totalContributions));
+  for (const project of PROJECTS) {
+    const thumbnail = (await readFile(new URL(`../assets/showcase/${project.id}.jpg`, import.meta.url))).toString('base64');
+    await writeFile(`${out}/project-${project.id}-${theme}.svg`, projectCard(theme, project, thumbnail));
+  }
 }
 console.log(`Wrote cards to ${out}:`, JSON.stringify(stats));
 }

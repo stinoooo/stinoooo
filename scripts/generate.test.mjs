@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { uptime, card, heatmap } from './generate.mjs';
+import { uptime, card, heatmap, projectCard, PROJECTS } from './generate.mjs';
 
 const portrait = JSON.parse(await readFile(new URL('../assets/portrait.json', import.meta.url), 'utf8'));
 const stats = { uptime: '24 years, 0 months, 21 days', repos: 15, stars: 5, contributions: 13900 };
@@ -35,4 +35,17 @@ test('draws the heatmap with one cell per day and five levels', () => {
   assert.equal((svg.match(/<title>/g) || []).length, 53 * 7);
   assert.match(svg, /1,234/);
   assert.equal(new Set(svg.match(/fill="#[0-9a-f]{6}"><title>/g)).size, 5);
+});
+
+test('draws a showcase card for every project, with an embedded thumbnail', async () => {
+  for (const project of PROJECTS) {
+    const thumb = (await readFile(new URL(`../assets/showcase/${project.id}.jpg`, import.meta.url))).toString('base64');
+    for (const theme of ['dark', 'light']) {
+      const svg = projectCard(theme, project, thumb);
+      assert.match(svg, /href="data:image\/jpeg;base64,/);
+      assert.ok(svg.includes(project.title));
+      // GitHub shows README SVGs as images, so nothing may point outside the file.
+      assert.doesNotMatch(svg, /href="https?:/);
+    }
+  }
 });
