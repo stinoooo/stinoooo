@@ -23,8 +23,8 @@ computer in years.
   late-night playtesting.
 - 🎮 **[Arcnode Games](https://arcnode.dev/projects/arcnode-games)**, the little launcher that
   installs and updates it.
-- 📓 **[ArcJournal](https://github.com/stinoooo/ArcJournal)**, my journaling app, now being rebuilt
-  with end-to-end encryption, for Windows, macOS and Linux.
+- 📓 **[ArcJournal 2.0](https://github.com/stinoooo/ArcJournal/releases/tag/v2.0.0)**, my journaling app,
+  just shipped: end-to-end encrypted, Arcnode sign-in, and updates itself on Windows, macOS and Linux.
 - ☕ **Learning Java** for school, and how AI actually works under the hood instead of only how to
   use it.
 
