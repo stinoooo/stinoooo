@@ -16,10 +16,16 @@ const PROFILE = {
   name: 'stijn',
   host: 'the Netherlands',
   role: 'software engineering student',
-  writes: 'TypeScript, JavaScript, PHP, Python, GDScript',
+  languages: 'TypeScript, JavaScript, Rust, PHP, Python, GDScript',
+  web: 'Next.js, React, Node.js, Prisma, WordPress',
+  desktop: 'Tauri, Electron',
+  games: 'Godot, Blender',
+  data: 'PostgreSQL, MongoDB, Redis',
+  ships: 'Vercel, Railway, Cloudflare, GitHub Actions',
   learning: 'Java',
   into: 'games, desktop apps, AI',
   making: 'Exit Only, Arcnode Games',
+  dog: 'Banjer, head of quality assurance',
 };
 
 const THEMES = {
@@ -77,10 +83,17 @@ function card(theme, portrait, stats) {
     ['Home', PROFILE.host],
     ['Uptime', stats.uptime],
     ['Role', PROFILE.role],
-    ['Writes', PROFILE.writes],
-    ['Learning', PROFILE.learning],
     ['Into', PROFILE.into],
     ['Making', PROFILE.making],
+    ['Dog', PROFILE.dog],
+    ['gap'],
+    ['Languages', PROFILE.languages],
+    ['Web', PROFILE.web],
+    ['Desktop', PROFILE.desktop],
+    ['Games', PROFILE.games],
+    ['Data', PROFILE.data],
+    ['Ships on', PROFILE.ships],
+    ['Learning', PROFILE.learning],
     ['gap'],
     ['Repos', `${stats.repos} public`],
     ['Stars', String(stats.stars)],
@@ -105,10 +118,10 @@ function card(theme, portrait, stats) {
     }
     y += k === 'gap' ? 10 : 22;
   }
-  const width = x0 + 470;
+  const width = x0 + 500;
   const artTop = (height - art.length * lineH) / 2 + 10;
   const artText = art.map((line, i) => `<tspan x="34" y="${(artTop + i * lineH).toFixed(1)}">${esc(line) || ' '}</tspan>`).join('');
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-label="${esc(`${PROFILE.name}: ${PROFILE.role} in ${PROFILE.host}. Writes ${PROFILE.writes}. Learning ${PROFILE.learning}. Into ${PROFILE.into}.`)}">
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-label="${esc(`${PROFILE.name}: ${PROFILE.role} in ${PROFILE.host}. Writes ${PROFILE.languages}. Builds with ${PROFILE.web}, ${PROFILE.desktop}, ${PROFILE.games}. Learning ${PROFILE.learning}. Into ${PROFILE.into}.`)}">
 <rect x="1" y="1" width="${width - 2}" height="${height - 2}" rx="16" fill="${t.bg}" stroke="${t.border}" stroke-width="2"/>
 <g font-family="${FONT}">
 <text font-size="11" fill="${t.portrait}" xml:space="preserve" opacity="0.92">${artText}</text>

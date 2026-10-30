@@ -2,7 +2,7 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/stinoooo/stinoooo/output/card-dark.svg" />
     <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/stinoooo/stinoooo/output/card-light.svg" />
-    <img alt="stijn@github: software engineering student in the Netherlands. Writes TypeScript, JavaScript, PHP, Python and GDScript, learning Java, into games, desktop apps and AI." src="https://raw.githubusercontent.com/stinoooo/stinoooo/output/card-dark.svg" width="100%" />
+    <img alt="stijn@github: software engineering student in the Netherlands. Writes TypeScript, JavaScript, Rust, PHP, Python and GDScript; builds with Next.js, React, Tauri, Electron, Godot and Blender; learning Java; into games, desktop apps and AI." src="https://raw.githubusercontent.com/stinoooo/stinoooo/output/card-dark.svg" width="100%" />
   </picture>
 </p>
 
@@ -39,10 +39,10 @@ computer in years.
 
 ### my favorite co-worker
 
-<img align="right" src="assets/dog.jpg" width="230" alt="My curly brown dog in a blue harness, sitting on a sandy beach in front of tall cliffs, tongue out and very pleased" />
+<img align="right" src="assets/dog.jpg" width="230" alt="Banjer, my curly brown dog, in a blue harness, sitting on a sandy beach in front of tall cliffs, tongue out and very pleased" />
 
-This is my dog, head of quality assurance and the reason most of my bugs get found on long
-walks. Very good at the beach, less good at code review, always happy to see me when a build
+This is **Banjer**, head of quality assurance. Most of my bugs get solved on his walks. He is
+very good at the beach, less good at code review, and always happy to see me when a build
 finally passes.
 
 <br clear="right" />
