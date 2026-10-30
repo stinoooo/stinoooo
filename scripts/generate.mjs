@@ -218,6 +218,12 @@ const PROJECTS = [
     tags: ['Tauri', 'Rust', 'React'],
   },
   {
+    id: 'arcnode-remote',
+    title: 'Arcnode Remote',
+    line: 'Remote support for Windows, end-to-end encrypted.',
+    tags: ['Tauri', 'Rust', 'security'],
+  },
+  {
     id: 'arcflux',
     title: 'ArcFlux',
     line: 'Color tracking and physics for projection mapping.',
