@@ -13,6 +13,9 @@ through: the code, but also the icon, the installer, the little sound when somet
 of what I build ends up under [Arcnode](https://arcnode.dev), my small studio for my own projects
 and the occasional client.
 
+🖥️ **My portfolio lives at [stinoo.dev](https://stinoo.dev)**: a terminal that draws me out of my own
+code, with sound. Rather just read? There's a [simple version](https://stinoo.dev/simple/) too.
+
 Lately I've been learning to make games, which turned out to be the most fun I've had with a
 computer in years.
 
@@ -75,7 +78,7 @@ finally passes.
 ### say hi
 
 Always happy to talk about games, side projects or anything you're building.
-Find me on Discord as **bossmannn**, on [X as @s_tinoo](https://x.com/s_tinoo), or through
-[arcnode.dev](https://arcnode.dev).
+Find me at [stinoo.dev](https://stinoo.dev), mail me at [stijn@stinoo.dev](mailto:stijn@stinoo.dev),
+or find me on Discord as **bossmannn** and on [X as @s_tinoo](https://x.com/s_tinoo).
 
 <sub>The cards above are drawn by a small script in this repository and redrawn every morning.</sub>
