@@ -57,9 +57,9 @@ computer in years.
 
 ### my favorite co-worker
 
-<img align="right" src="assets/dog.jpg" width="230" alt="Banjer, my curly brown dog, in a blue harness, sitting on a sandy beach in front of tall cliffs, tongue out and very pleased" />
+<img align="right" src="assets/dog.jpg" width="230" alt="Banjer, my curly brown labradoodle, in a blue harness, sitting on a sandy beach in front of tall cliffs, tongue out and very pleased" />
 
-This is **Banjer**, head of quality assurance. Most of my bugs get solved on his walks. He is
+This is **Banjer**, my lovely labradoodle and head of quality assurance. Most of my bugs get solved on his walks. He is
 very good at the beach, less good at code review, and always happy to see me when a build
 finally passes.
 

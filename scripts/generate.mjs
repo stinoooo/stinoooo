@@ -31,7 +31,7 @@ const PROFILE = {
   into: 'games, desktop apps, AI',
   making: 'Exit Only, Arcnode Games',
   shipped: 'ArcJournal 2.0, Exit Only 0.5.0, Arcnode Games 0.1.0',
-  dog: 'Banjer, head of quality assurance',
+  dog: 'Banjer, lovely labradoodle, head of quality assurance',
 };
 
 const THEMES = {
